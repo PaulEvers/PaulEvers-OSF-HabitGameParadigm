@@ -8,9 +8,8 @@ This repository contains the complete code, data, and analysis pipeline for the 
 
 - [Overview](#overview)
 - [Repository Structure](#repository-structure)
-- [Game Platform](#game-platform)
+- [Game](#game)
 - [Web Interface](#web-interface)
-- [Data Collection & Storage](#data-collection--storage)
 - [Data Processing & Analysis](#data-processing--analysis)
 - [How to Use](#how-to-use)
 - [License](#license)
