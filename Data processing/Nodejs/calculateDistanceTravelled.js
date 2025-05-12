@@ -2,8 +2,7 @@ const fs = require("fs");
 const csv = require("csv-parse");
 const createCsvWriter = require("csv-writer").createObjectCsvWriter;
 
-const INPUT_FILE =
-  "C:/Users/paulu/OneDrive - TU Eindhoven/TUe/Thesis/Data/Nodejs/rounds_roundLogs_merge_new.csv";
+const INPUT_FILE = "/rounds_roundLogs_merge_new.csv";
 
 const csvWriter = createCsvWriter({
   path: "total_distance_per_round.csv",

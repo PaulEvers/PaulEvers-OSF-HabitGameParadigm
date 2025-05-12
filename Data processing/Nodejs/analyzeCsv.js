@@ -5,9 +5,7 @@ const { parse } = require("json2csv");
 const THRESHOLD = 2; // Number of consecutive timestamps for the action slip
 
 // Load the CSV file
-const inputFile =
-  // "C:/Users/paulu/OneDrive - TU Eindhoven/TUe/Thesis/Data/Nodejs/test.csv";
-  "C:/Users/paulu/OneDrive - TU Eindhoven/TUe/Thesis/Data/Nodejs/rounds_roundLogs_merge_new.csv";
+const inputFile = "/rounds_roundLogs_merge_new.csv";
 const outputFile = "output_t" + THRESHOLD + ".csv";
 
 // Parameters

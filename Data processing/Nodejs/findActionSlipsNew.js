@@ -5,8 +5,8 @@ const createCsvWriter = require("csv-writer").createObjectCsvWriter;
 // Configuration
 const THRESHOLD = 8; // Number of consecutive decreasing distances required
 const INPUT_FILE =
-  // "C:/Users/paulu/OneDrive - TU Eindhoven/TUe/Thesis/Data/Nodejs/test.csv";
-  "C:/Users/paulu/OneDrive - TU Eindhoven/TUe/Thesis/Data/Nodejs/rounds_roundLogs_merge_new.csv";
+  // "/test.csv";
+  "/rounds_roundLogs_merge_new.csv";
 const OUTPUT_FILE = `rounds_t${THRESHOLD}_new.csv`;
 
 async function processData() {

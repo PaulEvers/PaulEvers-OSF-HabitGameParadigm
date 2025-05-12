@@ -5,9 +5,9 @@
 ////////////////////// Graph  ///////////////////////////////////
 clear
 set more off	
-// import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_roundLogs_merge_new.csv", case(preserve)
-// merge m:1 roundId using "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t8.dta", keepusing(wentBack)
-use "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t8_logs_wentback.dta", clear
+// import delimited "\rounds_roundLogs_merge_new.csv", case(preserve)
+// merge m:1 roundId using "\rounds_t8.dta", keepusing(wentBack)
+use "\rounds_t8_logs_wentback.dta", clear
 
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
@@ -52,7 +52,7 @@ foreach r in `rounds' {
         lcolor(blue) lwidth(medium) ///
         xline(`spawnTime', lcolor(red) lpattern(dash))
 
-    graph export "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\Do-files\Cleaned\Graphs\distance_vs_time_roundId_`r'.png", replace
+    graph export "\Do-files\Cleaned\Graphs\distance_vs_time_roundId_`r'.png", replace
 	graph close
 }
 
@@ -63,7 +63,7 @@ foreach r in `rounds' {
 ////////////////////// Example Graph Training ///////////////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_roundLogs_merge_new.csv", case(preserve)
+import delimited "\rounds_roundLogs_merge_new.csv", case(preserve)
 
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)	
@@ -92,7 +92,7 @@ graph twoway ///
 ////////////////////// Example Graph Training ///////////////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_roundLogs_merge_new.csv", case(preserve)
+import delimited "\rounds_roundLogs_merge_new.csv", case(preserve)
 
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)	

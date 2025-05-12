@@ -3,8 +3,8 @@ const csv = require("csv-parse");
 const createCsvWriter = require("csv-writer").createObjectCsvWriter;
 
 const INPUT_FILE =
-  // "C:/Users/paulu/OneDrive - TU Eindhoven/TUe/Thesis/Data/Nodejs/test.csv";
-  "C:/Users/paulu/OneDrive - TU Eindhoven/TUe/Thesis/Data/Nodejs/rounds_roundLogs_merge_new.csv";
+  // "/test.csv";
+  "/rounds_roundLogs_merge_new.csv";
 const OUTPUT_FILE = `rounds_consecutive_longest.csv`;
 
 // Function to find largest consecutive increasing sequence length and start time

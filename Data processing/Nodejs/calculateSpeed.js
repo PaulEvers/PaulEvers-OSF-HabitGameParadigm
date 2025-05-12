@@ -2,8 +2,7 @@ const fs = require("fs");
 const csv = require("csv-parse");
 const createCsvWriter = require("csv-writer").createObjectCsvWriter;
 
-const INPUT_FILE =
-  "C:/Users/paulu/OneDrive - TU Eindhoven/TUe/Thesis/Data/Nodejs/rounds_distance.csv";
+const INPUT_FILE = "/rounds_distance.csv";
 
 // Define output file path
 const OUTPUT_FILE = INPUT_FILE.replace(".csv", "_with_speed.csv");

@@ -6,7 +6,7 @@
 // Load Data
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t1.csv", case(preserve)
+import delimited "\rounds_t1.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 drop if phase == "Practice"
@@ -34,7 +34,7 @@ di 283 / (22 * 15) // 22 participants times 15 testing rounds
 clear
 set more off	
 
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds.csv", case(preserve)
+import delimited "\rounds.csv", case(preserve)
 
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
@@ -65,7 +65,7 @@ summarize picked_day3
 clear
 set more off	
 
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t1.csv", case(preserve)
+import delimited "\rounds_t1.csv", case(preserve)
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 drop if phase == "Practice"
 drop if day == 2
@@ -87,7 +87,7 @@ sum hasActionSlip_count3
 ////////////////////// T-test Action slips T1 ///////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t1.csv", case(preserve)
+import delimited "\rounds_t1.csv", case(preserve)
 
 summarize hasActionSlip if hasActionSlip == 1
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
@@ -106,7 +106,7 @@ ttest hasActionSlip_count1 == hasActionSlip_count3
 ////////////////////// T-test Action slips T1 excl high RT ///////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t1.csv", case(preserve)
+import delimited "\rounds_t1.csv", case(preserve)
 
 summarize hasActionSlip if hasActionSlip == 1
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
@@ -125,7 +125,7 @@ ttest hasActionSlip_count1 == hasActionSlip_count3
 ////////////////////// Action slips T8 - Descriptive ///////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t8_new.csv", case(preserve)
+import delimited "\rounds_t8_new.csv", case(preserve)
 
 
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
@@ -142,7 +142,7 @@ summarize hasActionSlip if hasActionSlip == 1 & day == 3
 ////////////////////// T-test Action slips T8 ///////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t8_new.csv", case(preserve)
+import delimited "\rounds_t8_new.csv", case(preserve)
 
 summarize hasActionSlip if hasActionSlip == 1
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
@@ -163,7 +163,7 @@ ttest hasActionSlip_count1 == hasActionSlip_count3
 ////////////////////// Actionslips histogram ///////////////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t8.csv", case(preserve)
+import delimited "\rounds_t8.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 
@@ -213,7 +213,7 @@ graph bar actionSlips, over(threshold, label(angle(45))) bar(1) ///
 ////////////////////// Actionslips histogram per day ///////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t8.csv", case(preserve)
+import delimited "\rounds_t8.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 
@@ -254,7 +254,7 @@ end
 
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t8.csv", case(preserve)
+import delimited "\rounds_t8.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 
@@ -296,7 +296,7 @@ return list
 ////////////////////// Longest consecutive  ////////////////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_consecutive_longest.csv", case(preserve)
+import delimited "\rounds_consecutive_longest.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 
@@ -326,7 +326,7 @@ graph bar (count), over(largestConsecutive, label(angle(45))) ///
 ////////////////////// Longest consecutive day 1  ////////////////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_consecutive_longest.csv", case(preserve)
+import delimited "\rounds_consecutive_longest.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 drop if day != 1
@@ -355,7 +355,7 @@ graph bar (count) trainingConsecutive testConsecutive, ///
 ////////////////////// Longest consecutive day 2  ////////////////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_consecutive_longest.csv", case(preserve)
+import delimited "\rounds_consecutive_longest.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 drop if day != 2
@@ -382,7 +382,7 @@ graph bar (count) trainingConsecutive, ///
 ////////////////////// Longest consecutive day 3  ////////////////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_consecutive_longest.csv", case(preserve)
+import delimited "\rounds_consecutive_longest.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 drop if day != 3

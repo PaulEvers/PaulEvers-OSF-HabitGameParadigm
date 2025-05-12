@@ -5,7 +5,7 @@
 ////////////////////// Picked up coins ////////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds.csv", case(preserve)
+import delimited "\rounds.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 drop if phase == "Practice"
@@ -38,7 +38,7 @@ di 4603 / 4619
 ////////////////////// Mean score ////////////////////////////
 clear
 set more off
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\participants_score.csv", case(lower)
+import delimited "\participants_score.csv", case(lower)
 drop email
 // Exclude outliers
 drop if inlist(id, 1,4,12,17,20,21,22,23,28,36,38,40)
@@ -57,7 +57,7 @@ graph bar (count), over(totalscore, label(angle(45))) bar(1) ///
 ////////////////////// Remaining time ////////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds.csv", case(preserve)
+import delimited "\rounds.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 drop if phase == "Practice"

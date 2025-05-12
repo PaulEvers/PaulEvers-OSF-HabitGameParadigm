@@ -4,8 +4,8 @@ const { parse } = require("json2csv");
 
 // Load the CSV file
 const inputFile =
-  // "C:/Users/paulu/OneDrive - TU Eindhoven/TUe/Thesis/Data/Nodejs/test.csv";
-  "C:/Users/paulu/OneDrive - TU Eindhoven/TUe/Thesis/Data/Nodejs/rounds_roundLogs_merge_new.csv";
+  // "/test.csv";
+  "/rounds_roundLogs_merge_new.csv";
 const outputFile = "output.csv";
 
 // Parameters

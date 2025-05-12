@@ -5,7 +5,7 @@
 ////////////////////// Returning times ////////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t8.csv", case(preserve)
+import delimited "\rounds_t8.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 
@@ -20,7 +20,7 @@ tabulate wentBack phase if day == 3
 ////////////////////// Scatterplot t8 ////////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t8.csv", case(preserve)
+import delimited "\rounds_t8.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 drop if phase == "Practice"	
@@ -54,7 +54,7 @@ twoway (scatter rt totalRounds if phase == "Training", mcolor(%30)) ///
 //////////////////////////////////// Means /////////////////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t8_new.csv", case(preserve)
+import delimited "\rounds_t8_new.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 drop if phase == "Practice"	
@@ -78,7 +78,7 @@ summarize rt if day == 3 & phase == "Test"
 ///////////////////// Means - Optimal choice ///////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t8_new.csv", case(preserve)
+import delimited "\rounds_t8_new.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 drop if phase == "Practice"
@@ -110,7 +110,7 @@ summarize rt if day == 3 & phase == "Test"
 ///////////////////// With forward - RT Switch cost optimal choice +-15 rounds///////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t8_new.csv", case(preserve)
+import delimited "\rounds_t8_new.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 drop if phase == "Practice"
@@ -150,7 +150,7 @@ graph bar (mean) rttraining rttest, over(day) ///
 ///////////////////// With forward - RT Switch cost optimal choice +-15 rounds - Covariate ///////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t8_new.csv", case(preserve)
+import delimited "\rounds_t8_new.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 drop if phase == "Practice"
@@ -184,9 +184,9 @@ anova rtTest participantId day c.rtTraining, repeated(day)
 clear
 set more off
 
-use "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\Do-files\switchcosts_day3.dta", clear
+use "\Do-files\switchcosts_day3.dta", clear
 
-merge 1:1 participantId using "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\Do-files\srbai_day3.dta"
+merge 1:1 participantId using "\Do-files\srbai_day3.dta"
 drop _merge
 
 // Exclude outliers
@@ -209,7 +209,7 @@ twoway (scatter score rtSwitchCost) (lfit score rtSwitchCost)
 clear
 set more off	
 
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\habitSurveyResults.csv", case(preserve)
+import delimited "\habitSurveyResults.csv", case(preserve)
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 
 gen score = (srbai1 + srbai2 + srbai3 + srbai4) / 4
@@ -220,7 +220,7 @@ collapse (mean) score, by(participantId)
 // Transform Switch Costs //
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t8_new.csv", case(preserve)
+import delimited "\rounds_t8_new.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 drop if phase == "Practice"
@@ -240,9 +240,9 @@ gen rtSwitchCost = rtForward - rtReturn
 //////////////////////////////////////////////////////////////////////////////////
 clear
 set more off	
-use "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\Do-files\switchcosts_mean.dta", clear
+use "\Do-files\switchcosts_mean.dta", clear
 
-merge 1:1 participantId using "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\Do-files\srbai_mean.dta"
+merge 1:1 participantId using "\Do-files\srbai_mean.dta"
 drop _merge 
 
 pwcorr rtSwitchCost score, sig
@@ -259,7 +259,7 @@ twoway (scatter score rtSwitchCost) (lfit score rtSwitchCost)
 clear
 set more off	
 
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\habitSurveyResults.csv", case(preserve)
+import delimited "\habitSurveyResults.csv", case(preserve)
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 
 gen score = (srbai1 + srbai2 + srbai3 + srbai4) / 4
@@ -269,7 +269,7 @@ sort participantId
 /////////////////////////////////////////////////////////////////////////////////
 clear
 set more off	
-import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds_t8_new.csv", case(preserve)
+import delimited "\rounds_t8_new.csv", case(preserve)
 // Exclude outliers
 drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
 drop if phase == "Practice"
@@ -287,9 +287,9 @@ drop if phase == "Training" & day == 3 & totalRounds > 75 & totalRounds <= 180
 //////////////////
 clear
 set more off
-use "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\Do-files\rounds_t8.dta", clear
+use "\Do-files\rounds_t8.dta", clear
  
-merge m:1 participantId day using "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\Do-files\srbai_day1-3.dta"
+merge m:1 participantId day using "\Do-files\srbai_day1-3.dta"
 
 // Drop outliers
 drop if (participantId == 26 | participantId == 9) & day == 3
