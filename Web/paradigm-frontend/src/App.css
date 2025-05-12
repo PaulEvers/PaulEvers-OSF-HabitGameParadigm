@@ -1,0 +1,45 @@
+#root {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 120px;
+}
+
+img {
+  height: 100px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.c-container {
+  max-height: 60vh;
+  overflow-y: scroll;
+  display: block !important;
+}
+
+.form-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 12px 0;
+  border-radius: 5px;
+  padding: 12px;
+}
+
+button {
+  margin-top: 12px;
+}
+.start-experiment-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+}
+
+.start-experiment {
+  text-decoration: underline;
+  text-align: center;
+  display: block;
+  font-size: 24px;
+  color: #646cff;
+}

@@ -1,0 +1,78 @@
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////// Picked up coins ////////////////////////////
+clear
+set more off	
+import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds.csv", case(preserve)
+// Exclude outliers
+drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
+drop if phase == "Practice"
+
+tab participantId
+sum id, det 
+
+sum pickedUpCoin if pickedUpCoin == 1
+
+// Picked up coins training day 1
+sum pickedUpCoin if pickedUpCoin == 1 & day == 1 & phase == "Training"
+di 1187 / (60*22)
+
+// Picked up coins training day 2
+sum pickedUpCoin if pickedUpCoin == 1 & day == 2 & phase == "Training"
+di 1298 / (60*22)
+
+// Picked up coins training day 3
+sum pickedUpCoin if pickedUpCoin == 1 & day == 3 & phase == "Training"
+di 1309 / (60*22)
+
+// Finish
+sum finished if finished == 1
+di 4603 / 4619
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////// Mean score ////////////////////////////
+clear
+set more off
+import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\participants_score.csv", case(lower)
+drop email
+// Exclude outliers
+drop if inlist(id, 1,4,12,17,20,21,22,23,28,36,38,40)
+
+sort totalscore
+sum totalscore
+graph bar (count), over(totalscore, label(angle(45))) bar(1) ///
+    ytitle("Number of Participants") ///
+    title("Frequency of Total Scores per Participant")
+	
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////// Remaining time ////////////////////////////
+clear
+set more off	
+import delimited "C:\Users\paulu\OneDrive - TU Eindhoven\TUe\Thesis\Data\rounds.csv", case(preserve)
+// Exclude outliers
+drop if inlist(participantId, 1,4,12,17,20,21,22,23,28,36,38,40)
+drop if phase == "Practice"
+
+gen timeToFinish = 45 - remainingTime
+
+drop if finished != 1
+
+sum timeToFinish if phase == "Training", det 
+sum timeToFinish if phase == "Test", det 
+
+replace totalRounds = totalRounds - 5
+
+drop if phase == "Training" & day == 1 & totalRounds <= 45 
+drop if phase == "Training" & day == 3 & totalRounds > 75 & totalRounds <= 180
+
+sum timeToFinish if phase == "Training", det 
+sum timeToFinish if phase == "Test", det 
